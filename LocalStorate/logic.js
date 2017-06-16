@@ -19,12 +19,12 @@ function init(){
 function addToDOM( key, value ){
   let note = document.createElement( 'li' );
   let span = document.createElement( 'span' );
-  let removeBtn = document.createElement( 'button' );
+  let removeBtn = document.createElement( 'a' );
 
   note.setAttribute( 'id', key );
   span.setAttribute( 'class', 'note' );
   span.innerHTML = value; 
-  removeBtn.innerHTML =  "X" ;
+  removeBtn.innerHTML =  " Task Complete " ;
   removeBtn.setAttribute( 'class', 'button' );
   removeBtn.addEventListener( 'click', function( e ){
     note.parentNode.removeChild( note );
