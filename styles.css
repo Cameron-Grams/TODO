@@ -1,0 +1,15 @@
+.note {
+  color: rgb( 44, 102, 43 );
+  font-family: arial;
+}
+
+.button {
+  background-color: rgb( 75, 79, 75 );
+  color: white;
+  border-radius: 15px; 
+  margin: 0 0 0 5px;
+}
+
+li {
+  margin: 10px;
+}
