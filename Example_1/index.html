@@ -40,9 +40,10 @@
     <section>
       <table id="tblTasks">
         <colgroup>
-          <col width="50%">
-          <col width="25%">
-          <col width="25%">
+          <col width="40%">
+          <col width="15%">
+          <col width="15%">
+          <col width="30%">
         </colgroup>
         <thead>
           <tr>
@@ -53,19 +54,40 @@
         </thead>
         <tbody>
           <tr>
-            <td>Return Library books</td>
+            <td >Return Library books</td>
             <td><time datetime="2017-07-09">2017-07-09</time></td>
             <td>Personal</td>
+            <td>
+              <nav>
+                <a href="#" class="editRow">Edit</a>
+                <a href="#" class="completeRow">Complete</a>
+                <a href="#" class="deleteRow">Delete</a>
+              </nav>
+            </td>
           </tr>
           <tr >
             <td>Perform project demo to stakeholders</td>
             <td><time datetime="2017-07-09">2017-07-09</time></td>
             <td>Work</td>
+            <td>
+              <nav>
+                <a href="#" class="editRow">Edit</a>
+                <a href="#" class="completeRow">Complete</a>
+                <a href="#" class="deleteRow">Delete</a>
+              </nav>
+            </td>
           </tr>
           <tr>
             <td>Meet friends for dinner</td>
             <td><time datetime="2017-07-09">2017-07-09</time></td> 
             <td>Personal</td>
+            <td>
+              <nav>
+                <a href="#" class="editRow">Edit</a>
+                <a href="#" class="completeRow">Complete</a>
+                <a href="#" class="deleteRow">Delete</a>
+              </nav>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -77,12 +99,35 @@
   <footer>You have 3 Tasks</footer>
 </body>
 <script>
+$( document ).ready( function(){
   $( '[ required="required" ]' ).prev( 'label' ).append( '<span> *</span>' ).children( 'span' ).addClass( 'required' );
+
   $( 'tbody tr:even' ).addClass( 'even' );
+
   $( '#btnAddTask' ).on( 'click', function( e ){
     e.preventDefault();
     $( '#taskCreation' ).removeClass( 'not' );
   } );
+
+  $( 'tbody tr' ).click( function( e ){
+    $( e.target ).closest( 'td' ).siblings().addBack().toggleClass( 'rowHighlight' );
+  } );
+
+  $( '#tblTasks tbody' ).on( 'click', '.deleteRow', function( e ){
+    e.preventDefault();
+    $( e.target ).parents( 'tr' ).remove();
+  } );
+
+  ( function( $ ){
+    $.fn.extend( {
+      toObject: function(){
+        console.log( this.serialize() );
+        }
+    } );
+  } )( jQuery );
+
+
+} );
 </script>
 </html>
 
